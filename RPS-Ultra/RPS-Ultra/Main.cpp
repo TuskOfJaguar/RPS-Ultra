@@ -73,7 +73,7 @@ int playerAct(int x, int y) {
 			break;
 		case 3:
 			if (n > 85) {
-				return 90;
+				return 100;
 			}
 			else {
 				return 0;
@@ -169,9 +169,9 @@ void duelistInfo(int x) {
 		cout << "Speed/Priority: 2\n";
 		cout << "Summary: Rock is a heavy combatant that uses it's enormous weight to crush the opposition.\n";
 		cout << "Moves:\n";
-		cout << "	1 - Three Ton Tackle - Offers Rock a 50/50 chance to deal 60 points of damage by rolling with immense speed towards it's enemy.\n";
+		cout << "	1 - Three Ton Tackle - Offers Rock a 50% chance to deal 60 points of damage by rolling with immense speed towards it's enemy.\n";
 		cout << "	2 - Digging Down - Guarantees a sneaky uppercut that deals low damage.\n";
-		cout << "	3 - Bullet Breakout - Fires small stones that deal extra damage to Paper. The damage depends on how many stones hit Paper.\n";
+		cout << "	3 - Bullet Breakout - Fires small stones that deal damage based on how many stones hit the opponent.\n";
 		cout << "	4 - Morbid Maul - Aggresively maul the opponent for a 10% chance to deal 100 points of damage.\n\n";
 		break;
 	case 2:
@@ -182,8 +182,8 @@ void duelistInfo(int x) {
 		cout << "Moves:\n";
 		cout << "	1 - Daring Devour - Grants a 90% chance to envelop the opposition for low damage. Damage may vary.\n";
 		cout << "	2 - Flip Flail - Summons a giant origami flail to swing in random directions. It's far from a guaranteed hit, but if it does hit, it'll hit hard.\n";
-		cout << "	3 - Stingshot - Allows Paper to fold itself into slingshot ammo, then launch itself like a bullet towards the enemy. It has a 15% chance to hit for 90 points of damage.\n";
-		cout << "	4 - Paper Plane - Offers Rock a 60% chance to deal 50 points of damage by folding itself into a paper airplane and flying into the enemy.\n\n";
+		cout << "	3 - Stingshot - Allows Paper to fold itself into slingshot ammo, then launch itself like a bullet towards the enemy. It has a 15% chance to hit for 100 points of damage.\n";
+		cout << "	4 - Paper Plane - Offers Paper a 60% chance to deal 50 points of damage by folding itself into a paper airplane and flying into the enemy.\n\n";
 		break;
 	case 3:
 		cout << "SCISSORS!\n";
@@ -192,7 +192,7 @@ void duelistInfo(int x) {
 		cout << "Summary: Scissors is a swift combatant that uses a combination of clamps, slashes and pierces to mince the opposition.\n";
 		cout << "Moves:\n";
 		cout << "	1 - Guilded Guillotine - This is a simple move that has a very small chance to instantly kill the enemy.\n";
-		cout << "	2 - Gruesome Grasp - This move is guaranteed to clamps the opponent dealing low damage.\n";
+		cout << "	2 - Gruesome Grasp - This move is guaranteed to clamp the opponent for low damage.\n";
 		cout << "	3 - Soaring Spear - Has a high probability to pierce the opposition, dealing decent damage.\n";
 		cout << "	4 - Bleed - This move has an 80% chance to hit for 25 points of damage and a 10% chance to cause bleed, which deals 80 points of damage.\n\n";
 		break;
@@ -264,38 +264,41 @@ int main() {
 	p1HP = 200;
 	p2HP = 200;
 	while (p1HP > 0 and p2HP > 0) {
-		if (p1HP > 0 and p2HP > 0) {
-			system("CLS");
-			cout << "You, ";
-			chosenDuelist(p1);
-			cout << ", have " << p1HP << "HP.\n\n";
-			cout << "Player 2, ";
-			chosenDuelist(p2);
-			cout << ", has " << p2HP << "HP.\n\n";
-			cout << "What will you do?\n";
-			moveset(p1);
-			cin >> move;
-			p2HP = p2HP - playerAct(p1, move);
-			system("CLS");
-			cout << "You, ";
-			chosenDuelist(p2);
-			cout << ", have " << p2HP << "HP.\n\n";
-			cout << "Player 1, ";
-			chosenDuelist(p1);
-			cout << ", has " << p1HP << "HP.\n\n";
-			cout << "What will you do?\n";
-			moveset(p2);
-			cin >> move;
-			p1HP = p1HP - playerAct(p2, move);
+		system("CLS");
+		cout << "You, ";
+		chosenDuelist(p1);
+		cout << ", have " << p1HP << "HP.\n\n";
+		cout << "Player 2, ";
+		chosenDuelist(p2);
+		cout << ", has " << p2HP << "HP.\n\n";
+		cout << "What will you do?\n\n";
+		moveset(p1);
+		cin >> move;
+		p2HP = p2HP - playerAct(p1, move);
+		if (p1HP <= 0 or p2HP <= 0) {
+			break;
 		}
-		else {
-			system("CLS");
-			if (p1HP > p2HP) {
-				cout << "Player 1 wins!";
-			}
-			else {
-				cout << "Player 2 wins!";
-			}
+		system("CLS");
+		cout << "You, ";
+		chosenDuelist(p2);
+		cout << ", have " << p2HP << "HP.\n\n";
+		cout << "Player 1, ";
+		chosenDuelist(p1);
+		cout << ", has " << p1HP << "HP.\n\n";
+		cout << "What will you do?\n\n";
+		moveset(p2);
+		cin >> move;
+		p1HP = p1HP - playerAct(p2, move);
+		if (p1HP <= 0 or p2HP <= 0) {
+			break;
 		}
+	}
+
+	system("CLS");
+	if (p1HP > p2HP) {
+		cout << "Player 1 wins!";
+	}
+	else {
+		cout << "Player 2 wins!";
 	}
 }
