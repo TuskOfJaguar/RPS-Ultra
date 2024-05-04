@@ -4,6 +4,7 @@
 #include <random>
 using namespace std;
 
+// Función para determinar el efecto de la acción del jugador
 int playerAct(int x, int y) {
 	int n;
 	random_device dev;
@@ -14,35 +15,35 @@ int playerAct(int x, int y) {
 		switch (y) {
 		case 1:
 			if (n > 50) {
-				return 60;
+				return 60; // Retorna 60 si el número aleatorio es mayor que 50
 			}
 			else {
-				return 0;
+				return 0; // Retorna 0 si el número aleatorio es 50 o menor
 			}
 			break;
 		case 2:
-			return 15;
+			return 15; // Retorna 15
 			break;
 		case 3:
 			if (n >= 25 and n < 50) {
-				return 25;
+				return 25; // Retorna 25 si el número aleatorio está entre 25 y 49
 			}
 			else if (n >= 50 and n < 75) {
-				return 35;
+				return 35; // Retorna 35 si el número aleatorio está entre 50 y 74
 			}
 			else if (n >= 75 and n <= 100) {
-				return 50;
+				return 50; // Retorna 50 si el número aleatorio está entre 75 y 100
 			}
 			else {
-				return 0;
+				return 0; // Retorna 0 si el número aleatorio es menor que 25 o mayor que 100
 			}
 			break;
 		case 4:
 			if (n > 90) {
-				return 100;
+				return 100; // Retorna 100 si el número aleatorio es mayor que 90
 			}
 			else {
-				return 0;
+				return 0; // Retorna 0 si el número aleatorio es 90 o menor
 			}
 			break;
 		}
@@ -51,40 +52,40 @@ int playerAct(int x, int y) {
 		switch (y) {
 		case 1:
 			if (n >= 10 and n < 40) {
-				return 20;
+				return 20; // Retorna 20 si el número aleatorio está entre 10 y 39
 			}
 			else if (n >= 40 and n < 70) {
-				return 25;
+				return 25; // Retorna 25 si el número aleatorio está entre 40 y 69
 			}
 			else if (n >= 70 and n <= 100) {
-				return 30;
+				return 30; // Retorna 30 si el número aleatorio está entre 70 y 100
 			}
 			else {
-				return 0;
+				return 0; // Retorna 0 si el número aleatorio es menor que 10 o mayor que 100
 			}
 			break;
 		case 2:
 			if (n > 75) {
-				return 75;
+				return 75; // Retorna 75 si el número aleatorio es mayor que 75
 			}
 			else {
-				return 0;
+				return 0; // Retorna 0 si el número aleatorio es 75 o menor
 			}
 			break;
 		case 3:
 			if (n > 85) {
-				return 100;
+				return 100; // Retorna 100 si el número aleatorio es mayor que 85
 			}
 			else {
-				return 0;
+				return 0; // Retorna 0 si el número aleatorio es 85 o menor
 			}
 			break;
 		case 4:
 			if (n > 40) {
-				return 50;
+				return 50; // Retorna 50 si el número aleatorio es mayor que 40
 			}
 			else {
-				return 0;
+				return 0; // Retorna 0 si el número aleatorio es 40 o menor
 			}
 			break;
 		}
@@ -93,32 +94,32 @@ int playerAct(int x, int y) {
 		switch (y) {
 		case 1:
 			if (n > 97) {
-				return 200;
+				return 200; // Retorna 200 si el número aleatorio es mayor que 97
 			}
 			else {
-				return 0;
+				return 0; // Retorna 0 si el número aleatorio es 97 o menor
 			}
 			break;
 		case 2:
-			return 15;
+			return 15; // Retorna 15
 			break;
 		case 3:
 			if (n > 25) {
-				return 40;
+				return 40; // Retorna 40 si el número aleatorio es mayor que 25
 			}
 			else {
-				return 0;
+				return 0; // Retorna 0 si el número aleatorio es 25 o menor
 			}
 			break;
 		case 4:
 			if (n > 10 and n <= 90) {
-				return 25;
+				return 25; // Retorna 25 si el número aleatorio está entre 11 y 90
 			}
 			else if (n > 90) {
-				return 80;
+				return 80; // Retorna 80 si el número aleatorio es mayor que 90
 			}
 			else {
-				return 0;
+				return 0; // Retorna 0 si el número aleatorio es 10 o menor
 			}
 			break;
 		}
@@ -126,6 +127,8 @@ int playerAct(int x, int y) {
 	}
 
 }
+
+//Función para mostrar el conjunto de movimientos disponibles
 void moveset(int x) {
 	switch (x) {
 	case 1:
@@ -148,6 +151,8 @@ void moveset(int x) {
 		break;
 	}
 }
+
+//Función para mostrar el duelist seleccionado por el jugador
 void chosenDuelist(int x) {
 	switch (x) {
 	case 1:
@@ -161,6 +166,8 @@ void chosenDuelist(int x) {
 		break;
 	}
 }
+
+//Función para mostrar la información del duelist seleccionado por el jugador
 void duelistInfo(int x) {
 	switch (x) {
 	case 1:
@@ -199,9 +206,12 @@ void duelistInfo(int x) {
 	}
 }
 
+//Función principal
 int main() {
 	int select, infoSelect, p1, p2, p1HP, p2HP, move;
 	select = 0;
+	int rating[10];
+	int wouldShare[10];
 	cout << "Welcome to Rock, Paper, Scissors: Ultra!" << "\n\n";
 	cout << "Press ENTER to continue!" << "\n\n";
 	cin.get();
