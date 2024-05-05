@@ -173,7 +173,6 @@ void duelistInfo(int x) {
 	case 1:
 		cout << "ROCK!\n";
 		cout << "Type: Rock\n";
-		cout << "Speed/Priority: 2\n";
 		cout << "Summary: Rock is a heavy combatant that uses it's enormous weight to crush the opposition.\n";
 		cout << "Moves:\n";
 		cout << "	1 - Three Ton Tackle - Offers Rock a 50% chance to deal 60 points of damage by rolling with immense speed towards it's enemy.\n";
@@ -184,7 +183,6 @@ void duelistInfo(int x) {
 	case 2:
 		cout << "PAPER!\n";
 		cout << "Type: Paper\n";
-		cout << "Speed/Priority: 3\n";
 		cout << "Summary: Paper is a lightweight, yet slow combatant that uses it's large surface area and flexibility to envelop and strangle the opposition\n";
 		cout << "Moves:\n";
 		cout << "	1 - Daring Devour - Grants a 90% chance to envelop the opposition for low damage. Damage may vary.\n";
@@ -195,7 +193,6 @@ void duelistInfo(int x) {
 	case 3:
 		cout << "SCISSORS!\n";
 		cout << "Type: Scissor\n";
-		cout << "Speed/Priority: 1\n";
 		cout << "Summary: Scissors is a swift combatant that uses a combination of clamps, slashes and pierces to mince the opposition.\n";
 		cout << "Moves:\n";
 		cout << "	1 - Guilded Guillotine - This is a simple move that has a very small chance to instantly kill the enemy.\n";
@@ -208,7 +205,7 @@ void duelistInfo(int x) {
 
 //Función principal
 int main() {
-	int select, infoSelect, p1, p2, p1HP, p2HP, move;
+	int select, infoSelect, p1, p2, p1HP, p2HP, move, rate, share;
 	select = 0;
 	int rating[10];
 	int wouldShare[10];
@@ -306,9 +303,49 @@ int main() {
 
 	system("CLS");
 	if (p1HP > p2HP) {
-		cout << "Player 1 wins!";
+		cout << "Player 1 wins!\n\n";
 	}
 	else {
-		cout << "Player 2 wins!";
+		cout << "Player 2 wins!\n\n";
 	}
+	
+	string ratingMessages[] = {
+		"We will try our hardest to make this program enjoyable.",
+		"We will try our hardest to make this program enjoyable.",
+		"We will try our hardest to make this program enjoyable.",
+		"We will try our hardest to make this program better.",
+		"We will try our hardest to make this program better.",
+		"We will try our hardest to make this program better.",
+		"We will try our hardest to make this program perfect.",
+		"We will try our hardest to make this program perfect.",
+		"We will try our hardest to make this program perfect.",
+		"We appreciate the input, and we're glad you love it."
+	};
+
+	string sharingMessages[] = {
+		"We hope one day this will be worthy of being shared.",
+		"We hope one day this will be worthy of being shared.",
+		"We hope one day this will be worthy of being shared.",
+		"We'll improve this experience for you and our future players.",
+		"We'll improve this experience for you and our future players.",
+		"We'll improve this experience for you and our future players.",
+		"We appreciate it a lot, and we're willing to work hard to make this the perfect player experience.",
+		"We appreciate it a lot, and we're willing to work hard to make this the perfect player experience.",
+		"We appreciate it a lot, and we're willing to work hard to make this the perfect player experience.",
+		"We're glad to know you love it, and hopefully those you share this with will love it just as much."
+	};
+
+	cout << "How would you rate this experience from 1 - 10?\n\n";
+	cin >> rate;
+	system("cls");
+	cout << ratingMessages[rate - 1] << endl;
+	cin.get();
+	cin.get();
+	system("cls");
+	cout << "How likely are you to share this with friends from 1 - 10?\n\n";
+	cin >> share;
+	system("cls");
+	cout << sharingMessages[share - 1] << endl;
+
+	return 0;
 }
