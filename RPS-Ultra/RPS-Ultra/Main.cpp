@@ -129,7 +129,7 @@ int playerAct(int x, int y) {
 
 }
 
-//Función para mostrar el conjunto de movimientos disponibles creada por (Adam)
+//Función para mostrar el conjunto de movimientos disponibles (Adam)
 void moveset(int x) {
 	switch (x) {
 	case 1:
@@ -153,7 +153,7 @@ void moveset(int x) {
 	}
 }
 
-//Función para mostrar el duelist seleccionado por el jugador creade (Adam)
+//Función para mostrar el duelist seleccionado por el jugador (Adam)
 void chosenDuelist(int x) {
 	switch (x) {
 	case 1:
