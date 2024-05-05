@@ -2,6 +2,7 @@
 #include <string>
 #include <stdlib.h>
 #include <random>
+#include <fstream>
 using namespace std;
 
 // Función para determinar el efecto de la acción del jugador (Discutida entre los dos para deteminar probabilidad de ataque y daño, programada por Adam)
@@ -303,12 +304,17 @@ int main() {
 	}
 
 	system("CLS");
+	ofstream whoWon;
+	whoWon.open("win_results.txt");
 	if (p1HP > p2HP) {
 		cout << "Player 1 wins!\n\n";
+		whoWon << "Player 1 wins!";
 	}
 	else {
 		cout << "Player 2 wins!\n\n";
+		whoWon << "Player 2 wins!";
 	}
+	whoWon.close();
 
 	string ratingMessages[] = {
 		"We will try our hardest to make this program enjoyable.",
@@ -347,6 +353,5 @@ int main() {
 	cin >> share;
 	system("cls");
 	cout << sharingMessages[share - 1] << endl;
-
 	return 0;
 }
