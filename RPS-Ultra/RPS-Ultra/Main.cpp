@@ -4,7 +4,7 @@
 #include <random>
 using namespace std;
 
-// Función para determinar el efecto de la acción del jugador
+// Función para determinar el efecto de la acción del jugador (Discutida entre los dos para deteminar probabilidad de ataque y daño, programada por Adam)
 int playerAct(int x, int y) {
 	int n;
 	random_device dev;
@@ -15,35 +15,35 @@ int playerAct(int x, int y) {
 		switch (y) {
 		case 1:
 			if (n > 50) {
-				return 60; // Retorna 60 si el número aleatorio es mayor que 50
+				return 60;
 			}
 			else {
-				return 0; // Retorna 0 si el número aleatorio es 50 o menor
+				return 0;
 			}
 			break;
 		case 2:
-			return 15; // Retorna 15
+			return 15;
 			break;
 		case 3:
 			if (n >= 25 and n < 50) {
-				return 25; // Retorna 25 si el número aleatorio está entre 25 y 49
+				return 25;
 			}
 			else if (n >= 50 and n < 75) {
-				return 35; // Retorna 35 si el número aleatorio está entre 50 y 74
+				return 35;
 			}
 			else if (n >= 75 and n <= 100) {
-				return 50; // Retorna 50 si el número aleatorio está entre 75 y 100
+				return 50;
 			}
 			else {
-				return 0; // Retorna 0 si el número aleatorio es menor que 25 o mayor que 100
+				return 0;
 			}
 			break;
 		case 4:
 			if (n > 90) {
-				return 100; // Retorna 100 si el número aleatorio es mayor que 90
+				return 100;
 			}
 			else {
-				return 0; // Retorna 0 si el número aleatorio es 90 o menor
+				return 0;
 			}
 			break;
 		}
@@ -52,40 +52,40 @@ int playerAct(int x, int y) {
 		switch (y) {
 		case 1:
 			if (n >= 10 and n < 40) {
-				return 20; // Retorna 20 si el número aleatorio está entre 10 y 39
+				return 20;
 			}
 			else if (n >= 40 and n < 70) {
-				return 25; // Retorna 25 si el número aleatorio está entre 40 y 69
+				return 25;
 			}
 			else if (n >= 70 and n <= 100) {
-				return 30; // Retorna 30 si el número aleatorio está entre 70 y 100
+				return 30;
 			}
 			else {
-				return 0; // Retorna 0 si el número aleatorio es menor que 10 o mayor que 100
+				return 0;
 			}
 			break;
 		case 2:
 			if (n > 75) {
-				return 75; // Retorna 75 si el número aleatorio es mayor que 75
+				return 75;
 			}
 			else {
-				return 0; // Retorna 0 si el número aleatorio es 75 o menor
+				return 0;
 			}
 			break;
 		case 3:
 			if (n > 85) {
-				return 100; // Retorna 100 si el número aleatorio es mayor que 85
+				return 100;
 			}
 			else {
-				return 0; // Retorna 0 si el número aleatorio es 85 o menor
+				return 0;
 			}
 			break;
 		case 4:
 			if (n > 40) {
-				return 50; // Retorna 50 si el número aleatorio es mayor que 40
+				return 50;
 			}
 			else {
-				return 0; // Retorna 0 si el número aleatorio es 40 o menor
+				return 0;
 			}
 			break;
 		}
@@ -94,32 +94,32 @@ int playerAct(int x, int y) {
 		switch (y) {
 		case 1:
 			if (n > 97) {
-				return 200; // Retorna 200 si el número aleatorio es mayor que 97
+				return 200;
 			}
 			else {
-				return 0; // Retorna 0 si el número aleatorio es 97 o menor
+				return 0;
 			}
 			break;
 		case 2:
-			return 15; // Retorna 15
+			return 15;
 			break;
 		case 3:
 			if (n > 25) {
-				return 40; // Retorna 40 si el número aleatorio es mayor que 25
+				return 40;
 			}
 			else {
-				return 0; // Retorna 0 si el número aleatorio es 25 o menor
+				return 0;
 			}
 			break;
 		case 4:
 			if (n > 10 and n <= 90) {
-				return 25; // Retorna 25 si el número aleatorio está entre 11 y 90
+				return 25;
 			}
 			else if (n > 90) {
-				return 80; // Retorna 80 si el número aleatorio es mayor que 90
+				return 80;
 			}
 			else {
-				return 0; // Retorna 0 si el número aleatorio es 10 o menor
+				return 0;
 			}
 			break;
 		}
@@ -128,7 +128,7 @@ int playerAct(int x, int y) {
 
 }
 
-//Función para mostrar el conjunto de movimientos disponibles
+//Función para mostrar el conjunto de movimientos disponibles creada por (Adam)
 void moveset(int x) {
 	switch (x) {
 	case 1:
@@ -152,7 +152,7 @@ void moveset(int x) {
 	}
 }
 
-//Función para mostrar el duelist seleccionado por el jugador
+//Función para mostrar el duelist seleccionado por el jugador creade (Adam)
 void chosenDuelist(int x) {
 	switch (x) {
 	case 1:
@@ -167,7 +167,7 @@ void chosenDuelist(int x) {
 	}
 }
 
-//Función para mostrar la información del duelist seleccionado por el jugador
+//Función para mostrar la información del duelist seleccionado por el jugador (Santiago)
 void duelistInfo(int x) {
 	switch (x) {
 	case 1:
@@ -203,7 +203,7 @@ void duelistInfo(int x) {
 	}
 }
 
-//Función principal
+//Función principal (Santiago)
 int main() {
 	int select, infoSelect, p1, p2, p1HP, p2HP, move, rate, share;
 	select = 0;
@@ -270,6 +270,7 @@ int main() {
 	system("CLS");
 	p1HP = 200;
 	p2HP = 200;
+	//Loop principal de batalla (Programado por Santiago con ayuda de Adam para el formateo)
 	while (p1HP > 0 and p2HP > 0) {
 		system("CLS");
 		cout << "You, ";
@@ -308,7 +309,7 @@ int main() {
 	else {
 		cout << "Player 2 wins!\n\n";
 	}
-	
+
 	string ratingMessages[] = {
 		"We will try our hardest to make this program enjoyable.",
 		"We will try our hardest to make this program enjoyable.",
